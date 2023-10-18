@@ -1,0 +1,58 @@
+package controller;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class hash1 {
+    Scanner leia = new Scanner(System.in);
+    public void inserirNome(HashMap<String, Integer> tabela) {
+        String nome;
+        String opcao = "s";
+        int id = 26;
+        System.out.println("Novo nome: ");
+        while(opcao.equals("s")|opcao.equals("S")) {
+            nome = leia.next();
+            tabela.put(nome, id);
+            System.out.println("Deseja inserir outro nome? S/N");
+            opcao = leia.next();
+        }
+    }
+
+    public String pesquisarNome(HashMap<String, Integer> tabela) {
+        System.out.println("Nome para pesquisar: ");
+        String nome = leia.next();
+        if(tabela.containsValue(nome)) {
+            return "Dado existente";
+        }else {
+            return "Dado inexistente";
+        }
+
+    }
+
+    public void remover(HashMap<String, Integer> tabela) {
+        String opcao = "s";
+        while(opcao.equals("s")|opcao.equals("S")) {
+            System.out.println("Nome que deseja remover:");
+            String nome = leia.next();
+            if (tabela.containsValue(nome)){
+            tabela.remove(nome);
+            System.out.println("Deseja remover outro nome? S/N");
+            opcao = leia.next();
+            } else System.out.println("Nao tem esse nome na tabela");
+        }
+    }
+
+    public String verificar(HashMap<String, Integer> tabela, int tamanhooriginal) {
+        int tamanhotabela = tabela.size();
+        if(tamanhotabela >= tamanhooriginal) return "A tabela esta cheia!";
+        else return "A tabela nao esta cheia!";
+    }
+
+    public void imprimir(HashMap<String, Integer> tabela) {
+        Map<String, Integer> ordemAlfa = new TreeMap<String, Integer>(tabela);
+        ordemAlfa = new TreeMap<String, Integer>(tabela);
+        ordemAlfa.keySet().forEach(System.out::println);
+    }
+
+}
