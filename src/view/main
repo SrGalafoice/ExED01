@@ -1,0 +1,79 @@
+package view;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+import controller.Hash1;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner leia = new Scanner(System.in);
+        Hash1 cont = new Hash1();
+        HashMap<String, Integer> tabela = new HashMap<String, Integer>();
+        String nome;
+
+        //metodo para inserir nomes:
+  //      for(int i=1;i<26;i++) {
+        //        System.out.println("Inserir nome: ");
+           // nome = leia.next();
+			//tabela.put(nome, i);
+		//}
+        tabela.put("Zyra", 26);
+        tabela.put("Yasuo", 25);
+        tabela.put("Xayah", 24);
+        tabela.put("Willump", 23);
+        tabela.put("Vladimir", 22);
+        tabela.put("Udyr", 21);
+        tabela.put("Twitch", 20);
+        tabela.put("Seraphine", 19);
+        tabela.put("Reksai", 18);
+        tabela.put("Quinn", 17);
+        tabela.put("Pantheon", 16);
+        tabela.put("Ornn", 15);
+        tabela.put("Naafiri", 14);
+        tabela.put("Master Yi", 13);
+        tabela.put("Lillia", 12);
+        tabela.put("Kled", 11);
+        tabela.put("Jax", 10);
+        tabela.put("Irelia", 9);
+        tabela.put("Hecarim", 8);
+        tabela.put("Gwen", 7);
+        tabela.put("Fizz", 6);
+        tabela.put("Ekko", 5);
+        tabela.put("Draven", 4);
+        tabela.put("Camille", 3);
+        tabela.put("Briar", 2);
+        tabela.put("Ahri", 1);
+
+        int x = 1;
+        while(x > 0 && x < 6) {
+            System.out.println("MENU:");
+            System.out.println("1 - Inserir um novo nome na tabela");
+            System.out.println("2 - Pesquisar um determinado nome na tabela");
+            System.out.println("3 - Remover um dado nome da tabela");
+            System.out.println("4 - Verificar se a tabela está cheia");
+            System.out.println("5 - Imprimir todos os dados da tabela");
+            System.out.println("9 - Cancelar");
+            x = leia.nextInt();
+            switch (x) {
+                case 1:
+                    cont.inserirNome(tabela);
+                    break;
+                case 2:
+                    System.out.println(cont.pesquisarNome(tabela));
+                    break;
+                case 3:
+                    cont.remover(tabela);
+                    break;
+                case 4:
+                    System.out.println(cont.verificar(tabela,26));
+                    break;
+                case 5:
+                    cont.imprimir(tabela);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
